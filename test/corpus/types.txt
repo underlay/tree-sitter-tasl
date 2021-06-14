@@ -1,0 +1,52 @@
+==================
+Type definitions
+==================
+
+# This is an example comment
+namespace schema http://schema.org/
+
+
+# A comment after some newlines is good to have
+namespace rdf http://www.w3.org/1999/02/22-rdf-syntax-ns#
+namespace xsd http://www.w3.org/2001/XMLSchema#
+
+type foo <>
+
+type bar {}
+
+type baz <xsd:string>
+
+type person {
+  ex:name -> string
+  ex:location -> ? [
+    ex:address <- string
+    ex:coordinates <- {
+      ex:lat -> double
+      ex:long -> double
+    }
+  ]
+}
+
+---
+
+(source_file
+  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespaceURI))
+  (type_definition (identifier) (uri))
+  (type_definition (identifier) (product))
+  (type_definition (identifier) (literal (datatype)))
+  (type_definition
+    (identifier)
+    (product
+      (component (key) (identifier))
+      (component
+        (key)
+        (optional
+          (coproduct
+            (option (key) (identifier))
+            (option
+              (key)
+              (product
+                (component (key) (identifier))
+                (component (key) (identifier))))))))))

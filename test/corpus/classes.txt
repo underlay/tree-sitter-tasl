@@ -1,0 +1,30 @@
+==================
+Class declarations
+==================
+
+namespace ex http://example.com/
+
+class ex:Person :: {
+  ex:name -> string
+  ex:favoriteBook -> ? * ex:Book
+}
+
+class ex:Book :: {
+  ex:title -> string
+  ex:isbn -> <>
+}
+
+---
+
+(source_file
+  (namespace_definition (identifier) (namespaceURI))
+  (class_declaration
+    (key)
+    (product
+      (component (key) (identifier))
+      (component (key) (optional (reference (key))))))
+  (class_declaration
+    (key)
+    (product
+      (component (key) (identifier))
+      (component (key) (uri)))))

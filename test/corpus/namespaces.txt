@@ -1,0 +1,18 @@
+==================
+Namespaces definitions
+==================
+
+# This is an example comment
+namespace schema http://schema.org/
+
+
+# A comment after some newlines is good to have
+namespace rdf http://www.w3.org/1999/02/22-rdf-syntax-ns#
+namespace xsd http://www.w3.org/2001/XMLSchema#
+
+---
+
+(source_file
+  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespaceURI)))

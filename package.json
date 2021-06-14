@@ -1,0 +1,26 @@
+{
+  "name": "tree-sitter-tasl",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "tree-sitter test",
+    "generate": "tree-sitter generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/underlay/tree-sitter-tasl.git"
+  },
+  "author": "Joel Gustafson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/underlay/tree-sitter-tasl/issues"
+  },
+  "homepage": "https://github.com/underlay/tree-sitter-tasl#readme",
+  "dependencies": {
+    "nan": "^2.14.2"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.19.5"
+  }
+}

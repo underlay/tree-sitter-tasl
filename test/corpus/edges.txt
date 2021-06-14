@@ -1,0 +1,15 @@
+==================
+Edge declarations
+==================
+
+edge ex:Friendship :: ex:Person => ex:Person
+
+edge ex:Friendship :: ex:Person =/ {
+  ex:name -> string
+} /=> ex:Person
+
+---
+
+(source_file
+  (edge_declaration (key) (source) (value) (target))
+  (edge_declaration (key) (source) (value (product (component (key) (identifier)))) (target)))
