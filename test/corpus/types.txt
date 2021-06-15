@@ -14,7 +14,7 @@ type foo <>
 
 type bar {}
 
-type baz <xsd:string>
+type baz xsd:string
 
 type person {
   ex:name -> string
@@ -30,23 +30,25 @@ type person {
 ---
 
 (source_file
+  (comment)
   (namespace_definition (identifier) (namespaceURI))
+  (comment)
   (namespace_definition (identifier) (namespaceURI))
   (namespace_definition (identifier) (namespaceURI))
   (type_definition (identifier) (uri))
   (type_definition (identifier) (product))
-  (type_definition (identifier) (literal (datatype)))
+  (type_definition (identifier) (literal))
   (type_definition
     (identifier)
     (product
-      (component (key) (identifier))
+      (component (term) (identifier))
       (component
-        (key)
+        (term)
         (optional
           (coproduct
-            (option (key) (identifier))
+            (option (term) (identifier))
             (option
-              (key)
+              (term)
               (product
-                (component (key) (identifier))
-                (component (key) (identifier))))))))))
+                (component (term) (identifier))
+                (component (term) (identifier))))))))))

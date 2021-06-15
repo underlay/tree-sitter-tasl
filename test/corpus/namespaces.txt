@@ -13,6 +13,8 @@ namespace xsd http://www.w3.org/2001/XMLSchema#
 ---
 
 (source_file
+  (comment)
   (namespace_definition (identifier) (namespaceURI))
+  (comment)
   (namespace_definition (identifier) (namespaceURI))
   (namespace_definition (identifier) (namespaceURI)))

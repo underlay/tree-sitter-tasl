@@ -11,5 +11,5 @@ edge ex:Friendship :: ex:Person =/ {
 ---
 
 (source_file
-  (edge_declaration (key) (source) (value) (target))
-  (edge_declaration (key) (source) (value (product (component (key) (identifier)))) (target)))
+  (edge_declaration (term) (term) (term))
+  (edge_declaration (term) (term) (product (component (term) (identifier))) (term)))

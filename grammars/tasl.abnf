@@ -22,14 +22,14 @@ edge                 = "=>"
 type = identifier    ; type variable
      / optional      ; optional type
      / reference     ; reference type
-     / uri           ; urifdas type
+     / uri           ; uri type
      / literal       ; literal type
      / product       ; product type
      / coproduct     ; coproduct type
 
 optional   = "?" *WSP type
 uri        = "<>"
-literal    = "<" term ">"
+literal    = term
 reference  = "*" *WSP term
 product    = "{" [ *WSP newline components ] *WSP "}"
 components = *( *WSP [ line-comment / component *WSP ] newline )

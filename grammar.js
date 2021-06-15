@@ -1,9 +1,10 @@
 module.exports = grammar({
 	name: "tasl",
+	word: ($) => $.identifier,
 	rules: {
 		source_file: ($) =>
 			seq(repeat(seq(optional($._block), "\n")), optional($._block)),
-		_block: ($) => choice($._comment, $._statement),
+		_block: ($) => choice($.comment, $._statement),
 
 		_statement: ($) =>
 			choice(
@@ -13,48 +14,68 @@ module.exports = grammar({
 				$.edge_declaration
 			),
 
-		_comment: ($) => /#[^$\n]*/,
+		comment: ($) => /#[^$\n]*/,
 
 		namespace_definition: ($) =>
-			seq("namespace", $._, $.identifier, $._, $.namespaceURI),
+			seq(
+				"namespace",
+				$._,
+				field("name", $.identifier),
+				$._,
+				field("value", $.namespaceURI)
+			),
 
 		namespaceURI: ($) =>
 			/[a-zA-Z][a-zA-Z0-9]*:[a-zA-Z0-9\-\._~:/\[\]@!$&'()*+,;%=]+[/?#]/,
 
-		type_definition: ($) => seq("type", $._, $.identifier, $._, $._type),
+		type_definition: ($) =>
+			seq(
+				"type",
+				$._,
+				field("name", $.identifier),
+				$._,
+				field("value", $._type)
+			),
 		class_declaration: ($) =>
-			seq("class", $._, $.key, $._, "::", $._, $._type),
+			seq(
+				"class",
+				$._,
+				field("key", $.term),
+				$._,
+				"::",
+				$._,
+				field("value", $._type)
+			),
 		edge_declaration: ($) =>
 			seq(
 				"edge",
 				$._,
-				$.key,
+				field("key", $.term),
 				$._,
 				"::",
 				$._,
-				alias($.key, $.source),
+				field("source", $.term),
 				$._,
-				$.value,
+				field(
+					"value",
+					choice("=>", seq("=/", $._, $._type, $._, "/=>"))
+				),
 				$._,
-				alias($.key, $.target)
+				field("target", $.term)
 			),
-		value: ($) => choice("=>", seq("=/", $._, $._type, $._, "/=>")),
 
 		_type: ($) =>
 			choice(
 				$.identifier,
 				$.optional,
 				$.reference,
-				$.uri,
-				$.literal,
+				alias("<>", $.uri),
+				alias($.term, $.literal),
 				$.product,
 				$.coproduct
 			),
-
-		optional: ($) => seq("?", $._type),
-		reference: ($) => seq("*", $.key),
-		uri: ($) => "<>",
-		literal: ($) => seq("<", alias($.key, $.datatype), ">"),
+		optional: ($) => seq("?", field("value", $._type)),
+		reference: ($) => seq("*", field("key", $.term)),
 		product: ($) =>
 			seq(
 				"{",
@@ -62,14 +83,15 @@ module.exports = grammar({
 					seq(
 						"\n",
 						repeat(
-							seq(optional(choice($._comment, $.component)), "\n")
+							seq(optional(choice($.comment, $.component)), "\n")
 						)
 					)
 				),
 				"}"
 			),
 
-		component: ($) => seq($.key, $._, "->", $._, $._type),
+		component: ($) =>
+			seq(field("key", $.term), $._, "->", $._, field("value", $._type)),
 
 		coproduct: ($) =>
 			seq(
@@ -77,19 +99,18 @@ module.exports = grammar({
 				optional(
 					seq(
 						"\n",
-						repeat(
-							seq(optional(choice($._comment, $.option)), "\n")
-						)
+						repeat(seq(optional(choice($.comment, $.option)), "\n"))
 					)
 				),
 				"]"
 			),
 
-		option: ($) => seq($.key, $._, "<-", $._, $._type),
+		option: ($) =>
+			seq(field("key", $.term), $._, "<-", $._, field("value", $._type)),
 
 		identifier: ($) => /[a-zA-Z][a-zA-Z0-9]*/,
 
-		key: ($) =>
+		term: ($) =>
 			/[a-zA-Z][a-zA-Z0-9]*:(?:[A-Za-z0-9\-._~!$&'()*+,;=:@/?]|%[0-9A-Fa-f]{2})+/,
 
 		_: ($) => /[ \t]/,

@@ -19,12 +19,12 @@ class ex:Book :: {
 (source_file
   (namespace_definition (identifier) (namespaceURI))
   (class_declaration
-    (key)
+    (term)
     (product
-      (component (key) (identifier))
-      (component (key) (optional (reference (key))))))
+      (component (term) (identifier))
+      (component (term) (optional (reference (term))))))
   (class_declaration
-    (key)
+    (term)
     (product
-      (component (key) (identifier))
-      (component (key) (uri)))))
+      (component (term) (identifier))
+      (component (term) (uri)))))
