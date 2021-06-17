@@ -1,0 +1,10 @@
+==================
+Literal definitions
+==================
+
+literal baz xsd:dateTime
+
+---
+
+(source_file
+  (literal_definition (identifier) (term)))

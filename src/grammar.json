@@ -65,6 +65,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "literal_definition"
+        },
+        {
+          "type": "SYMBOL",
           "name": "type_definition"
         },
         {
@@ -109,14 +113,47 @@
           "name": "value",
           "content": {
             "type": "SYMBOL",
-            "name": "namespaceURI"
+            "name": "namespace_uri"
           }
         }
       ]
     },
-    "namespaceURI": {
+    "namespace_uri": {
       "type": "PATTERN",
       "value": "[a-zA-Z][a-zA-Z0-9]*:[a-zA-Z0-9\\-\\._~:/\\[\\]@!$&'()*+,;%=]+[/?#]"
+    },
+    "literal_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_"
+        },
+        {
+          "type": "FIELD",
+          "name": "datatype",
+          "content": {
+            "type": "SYMBOL",
+            "name": "term"
+          }
+        }
+      ]
     },
     "type_definition": {
       "type": "SEQ",
@@ -303,22 +340,8 @@
           "name": "reference"
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "STRING",
-            "value": "<>"
-          },
-          "named": true,
-          "value": "uri"
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "SYMBOL",
-            "name": "term"
-          },
-          "named": true,
-          "value": "literal"
+          "type": "SYMBOL",
+          "name": "uri"
         },
         {
           "type": "SYMBOL",
@@ -363,6 +386,10 @@
           }
         }
       ]
+    },
+    "uri": {
+      "type": "STRING",
+      "value": "<>"
     },
     "product": {
       "type": "SEQ",

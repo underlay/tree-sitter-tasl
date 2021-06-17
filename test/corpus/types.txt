@@ -14,8 +14,6 @@ type foo <>
 
 type bar {}
 
-type baz xsd:string
-
 type person {
   ex:name -> string
   ex:location -> ? [
@@ -31,13 +29,12 @@ type person {
 
 (source_file
   (comment)
-  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespace_uri))
   (comment)
-  (namespace_definition (identifier) (namespaceURI))
-  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespace_uri))
+  (namespace_definition (identifier) (namespace_uri))
   (type_definition (identifier) (uri))
   (type_definition (identifier) (product))
-  (type_definition (identifier) (literal))
   (type_definition
     (identifier)
     (product

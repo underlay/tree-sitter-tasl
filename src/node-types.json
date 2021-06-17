@@ -26,10 +26,6 @@
             "named": true
           },
           {
-            "type": "literal",
-            "named": true
-          },
-          {
             "type": "optional",
             "named": true
           },
@@ -73,10 +69,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -177,10 +169,6 @@
             "named": true
           },
           {
-            "type": "literal",
-            "named": true
-          },
-          {
             "type": "optional",
             "named": true
           },
@@ -194,6 +182,32 @@
           },
           {
             "type": "uri",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "literal_definition",
+    "named": true,
+    "fields": {
+      "datatype": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "term",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -219,7 +233,7 @@
         "required": true,
         "types": [
           {
-            "type": "namespaceURI",
+            "type": "namespace_uri",
             "named": true
           }
         ]
@@ -250,10 +264,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -290,10 +300,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -372,6 +378,10 @@
           "named": true
         },
         {
+          "type": "literal_definition",
+          "named": true
+        },
+        {
           "type": "namespace_definition",
           "named": true
         },
@@ -406,10 +416,6 @@
           },
           {
             "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "literal",
             "named": true
           },
           {
@@ -494,14 +500,14 @@
   },
   {
     "type": "literal",
-    "named": true
+    "named": false
   },
   {
     "type": "namespace",
     "named": false
   },
   {
-    "type": "namespaceURI",
+    "type": "namespace_uri",
     "named": true
   },
   {

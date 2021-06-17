@@ -9,6 +9,7 @@ module.exports = grammar({
 		_statement: ($) =>
 			choice(
 				$.namespace_definition,
+				$.literal_definition,
 				$.type_definition,
 				$.class_declaration,
 				$.edge_declaration
@@ -22,11 +23,20 @@ module.exports = grammar({
 				$._,
 				field("name", $.identifier),
 				$._,
-				field("value", $.namespaceURI)
+				field("value", $.namespace_uri)
 			),
 
-		namespaceURI: ($) =>
+		namespace_uri: ($) =>
 			/[a-zA-Z][a-zA-Z0-9]*:[a-zA-Z0-9\-\._~:/\[\]@!$&'()*+,;%=]+[/?#]/,
+
+		literal_definition: ($) =>
+			seq(
+				"literal",
+				$._,
+				field("name", $.identifier),
+				$._,
+				field("datatype", $.term)
+			),
 
 		type_definition: ($) =>
 			seq(
@@ -36,6 +46,7 @@ module.exports = grammar({
 				$._,
 				field("value", $._type)
 			),
+
 		class_declaration: ($) =>
 			seq(
 				"class",
@@ -46,6 +57,7 @@ module.exports = grammar({
 				$._,
 				field("value", $._type)
 			),
+
 		edge_declaration: ($) =>
 			seq(
 				"edge",
@@ -56,10 +68,7 @@ module.exports = grammar({
 				$._,
 				field("source", $.term),
 				$._,
-				field(
-					"value",
-					choice("=>", seq("=/", $._, $._type, $._, "/=>"))
-				),
+				field("value", choice("=>", seq("=/", $._, $._type, $._, "/=>"))),
 				$._,
 				field("target", $.term)
 			),
@@ -69,23 +78,22 @@ module.exports = grammar({
 				$.identifier,
 				$.optional,
 				$.reference,
-				alias("<>", $.uri),
-				alias($.term, $.literal),
+				$.uri,
 				$.product,
 				$.coproduct
 			),
+
 		optional: ($) => seq("?", field("value", $._type)),
+
 		reference: ($) => seq("*", field("key", $.term)),
+
+		uri: ($) => "<>",
+
 		product: ($) =>
 			seq(
 				"{",
 				optional(
-					seq(
-						"\n",
-						repeat(
-							seq(optional(choice($.comment, $.component)), "\n")
-						)
-					)
+					seq("\n", repeat(seq(optional(choice($.comment, $.component)), "\n")))
 				),
 				"}"
 			),
@@ -97,10 +105,7 @@ module.exports = grammar({
 			seq(
 				"[",
 				optional(
-					seq(
-						"\n",
-						repeat(seq(optional(choice($.comment, $.option)), "\n"))
-					)
+					seq("\n", repeat(seq(optional(choice($.comment, $.option)), "\n")))
 				),
 				"]"
 			),
@@ -116,4 +121,4 @@ module.exports = grammar({
 		_: ($) => /[ \t]/,
 	},
 	extras: ($) => [$._],
-});
+})

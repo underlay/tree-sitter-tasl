@@ -17,7 +17,7 @@ class ex:Book :: {
 ---
 
 (source_file
-  (namespace_definition (identifier) (namespaceURI))
+  (namespace_definition (identifier) (namespace_uri))
   (class_declaration
     (term)
     (product
