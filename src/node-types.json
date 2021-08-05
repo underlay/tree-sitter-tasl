@@ -111,84 +111,6 @@
     }
   },
   {
-    "type": "edge_declaration",
-    "named": true,
-    "fields": {
-      "key": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "term",
-            "named": true
-          }
-        ]
-      },
-      "source": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "term",
-            "named": true
-          }
-        ]
-      },
-      "target": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "term",
-            "named": true
-          }
-        ]
-      },
-      "value": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": "/=>",
-            "named": false
-          },
-          {
-            "type": "=/",
-            "named": false
-          },
-          {
-            "type": "=>",
-            "named": false
-          },
-          {
-            "type": "coproduct",
-            "named": true
-          },
-          {
-            "type": "identifier",
-            "named": true
-          },
-          {
-            "type": "optional",
-            "named": true
-          },
-          {
-            "type": "product",
-            "named": true
-          },
-          {
-            "type": "reference",
-            "named": true
-          },
-          {
-            "type": "uri",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "literal_definition",
     "named": true,
     "fields": {
@@ -374,10 +296,6 @@
           "named": true
         },
         {
-          "type": "edge_declaration",
-          "named": true
-        },
-        {
           "type": "literal_definition",
           "named": true
         },
@@ -451,23 +369,11 @@
     "named": false
   },
   {
-    "type": "/=>",
-    "named": false
-  },
-  {
     "type": "::",
     "named": false
   },
   {
     "type": "<-",
-    "named": false
-  },
-  {
-    "type": "=/",
-    "named": false
-  },
-  {
-    "type": "=>",
     "named": false
   },
   {
@@ -489,10 +395,6 @@
   {
     "type": "comment",
     "named": true
-  },
-  {
-    "type": "edge",
-    "named": false
   },
   {
     "type": "identifier",

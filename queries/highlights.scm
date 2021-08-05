@@ -1,23 +1,17 @@
 (comment) @comment
 
 "namespace" @keyword
+"literal" @keyword
 "type" @keyword
 "class" @keyword
-"edge" @keyword
 
 (class_declaration "::" @constructor)
 (class_declaration key: (term) @function.builtin)
 
-(edge_declaration key: (term) @function.builtin)
-(edge_declaration source: (term) @function.builtin)
-(edge_declaration target: (term) @function.builtin)
-(edge_declaration "::" @constructor)
-(edge_declaration "=>" @punctuation.delimiter)
-(edge_declaration "=/" @punctuation.delimiter)
-(edge_declaration "/=>" @punctuation.delimiter)
 
 (namespace_definition (identifier) @variable.builtin)
 (identifier) @type
+
 
 (product "{" @punctuation.bracket)
 (product "}" @punctuation.bracket)
@@ -32,8 +26,6 @@
 (option "<-" @punctuation.delimiter)
 
 (uri) @constant.builtin
-
-(literal) @constant
 
 (optional "?" @operator)
 

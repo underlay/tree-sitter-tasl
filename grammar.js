@@ -11,8 +11,7 @@ module.exports = grammar({
 				$.namespace_definition,
 				$.literal_definition,
 				$.type_definition,
-				$.class_declaration,
-				$.edge_declaration
+				$.class_declaration
 			),
 
 		comment: ($) => /#[^$\n]*/,
@@ -56,21 +55,6 @@ module.exports = grammar({
 				"::",
 				$._,
 				field("value", $._type)
-			),
-
-		edge_declaration: ($) =>
-			seq(
-				"edge",
-				$._,
-				field("key", $.term),
-				$._,
-				"::",
-				$._,
-				field("source", $.term),
-				$._,
-				field("value", choice("=>", seq("=/", $._, $._type, $._, "/=>"))),
-				$._,
-				field("target", $.term)
 			),
 
 		_type: ($) =>

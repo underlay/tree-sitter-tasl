@@ -1,35 +1,35 @@
 {
-  "name": "tree-sitter-tasl",
-  "version": "0.0.1",
-  "description": "",
-  "main": "bindings/node",
-  "scripts": {
-    "test": "tree-sitter test",
-    "generate": "tree-sitter generate"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/underlay/tree-sitter-tasl.git"
-  },
-  "author": "Joel Gustafson",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/underlay/tree-sitter-tasl/issues"
-  },
-  "homepage": "https://github.com/underlay/tree-sitter-tasl#readme",
-  "dependencies": {
-    "nan": "^2.14.2"
-  },
-  "devDependencies": {
-    "tree-sitter-cli": "^0.19.5"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.tasl",
-      "file-types": [
-        "tasl"
-      ],
-      "injection-regex": "tasl"
-    }
-  ]
+	"name": "tree-sitter-tasl",
+	"version": "0.1.0",
+	"description": "tree-sitter grammar for the tasl language",
+	"main": "bindings/node/index.js",
+	"scripts": {
+		"test": "tree-sitter test",
+		"generate": "tree-sitter generate"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/underlay/tree-sitter-tasl.git"
+	},
+	"author": "Joel Gustafson",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/underlay/tree-sitter-tasl/issues"
+	},
+	"homepage": "https://github.com/underlay/tree-sitter-tasl#readme",
+	"dependencies": {
+		"nan": "^2.14.2"
+	},
+	"devDependencies": {
+		"tree-sitter-cli": "^0.20.0"
+	},
+	"tree-sitter": [
+		{
+			"scope": "source.tasl",
+			"file-types": [
+				"tasl"
+			],
+			"injection-regex": "tasl"
+		}
+	]
 }

@@ -74,10 +74,6 @@
         {
           "type": "SYMBOL",
           "name": "class_declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "edge_declaration"
         }
       ]
     },
@@ -225,101 +221,6 @@
           "content": {
             "type": "SYMBOL",
             "name": "_type"
-          }
-        }
-      ]
-    },
-    "edge_declaration": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "edge"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_"
-        },
-        {
-          "type": "FIELD",
-          "name": "key",
-          "content": {
-            "type": "SYMBOL",
-            "name": "term"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_"
-        },
-        {
-          "type": "STRING",
-          "value": "::"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_"
-        },
-        {
-          "type": "FIELD",
-          "name": "source",
-          "content": {
-            "type": "SYMBOL",
-            "name": "term"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_"
-        },
-        {
-          "type": "FIELD",
-          "name": "value",
-          "content": {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "=>"
-              },
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "STRING",
-                    "value": "=/"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_type"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "_"
-                  },
-                  {
-                    "type": "STRING",
-                    "value": "/=>"
-                  }
-                ]
-              }
-            ]
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_"
-        },
-        {
-          "type": "FIELD",
-          "name": "target",
-          "content": {
-            "type": "SYMBOL",
-            "name": "term"
           }
         }
       ]
